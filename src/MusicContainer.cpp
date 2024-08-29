@@ -6,21 +6,40 @@
 
 // Constructor for MusicContainer class
 MusicContainer::MusicContainer(AudioCallback callback) 
-    : id(0), volume(1.0f), pitch(1.0f), pan(0.5f)
+    : id(0), volume(0.05f), pitch(1.0f), pan(0.5f)
 {
     // Get the current working directory and append the "music" path
     std::filesystem::path path = std::filesystem::current_path().append("music");
 
     // Iterate over all files in the "music" directory
     for (auto &entry : std::filesystem::directory_iterator(path)) {
-        // Print the filename
-        std::cout << split(entry.path().string(), "/").back() << std::endl;
+        // Check extension of the file 
+        #ifdef _WIN32 
+            std::string fileName = split(entry.path().string(), "\\").back();
+            std::string extension = split(fileName, ".").back();
+        #else 
+            std::string fileName = split(entry.path().string(), "/").back();
+            std::string extension = split(fileName, ".").back();
+        #endif
 
-        // Load the music file and add it to the container
-        container.push_back({split(entry.path().string(), "/").back(), LoadMusicStream(entry.path().string().c_str())});
+        if(
+            extension == "mp3" ||
+            extension == "wav" ||
+            extension == "m4a"
+        ) {
+            // Load the music file and add it to the container
+            Music music = LoadMusicStream(entry.path().string().c_str());
+            
+            // If cannot open a music stream
+            if (!IsMusicReady(music)) {
+                UnloadMusicStream(music);
+                continue;
+            }
+            container.push_back({fileName, music});
 
-        // Attach an audio stream processor to the music stream
-        AttachAudioStreamProcessor(container.back().second.stream, callback);
+            // Attach an audio stream processor to the music stream
+            AttachAudioStreamProcessor(container.back().second.stream, callback);
+        }
     }
 }
 

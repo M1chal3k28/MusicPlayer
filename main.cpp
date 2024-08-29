@@ -79,13 +79,20 @@
 #include <memory.h>
 #include <MusicContainer.hpp>
 
-float output[128];
-float LastHeights[128];
+#ifdef _WIN32
+    #define SIZE 480
+    #define SPACING 2
+#else
+    #define SIZE 512
+    #define SPACING 4
+#endif
+
+float output[SIZE / 2];
+float LastHeights[SIZE / 2];
 
 void callback(void * bufferData, unsigned int frames) {
     float * buffer = (float *)bufferData;
-
-    computeFFT(buffer, frames / 2, output);
+    computeFFT(buffer, frames, output);
 }
 
 int main() {
@@ -146,10 +153,10 @@ int main() {
         BeginDrawing();
             Color TextColor = { 255, 128, 0, 255 };
             float Highest = 0;
-            for(int i = 0; i < 128; i++) {
+            for(int i = 0; i < SIZE / 2; i++) {
                 // Offset and position
-                Vector2 windowOffset = { GetScreenWidth() / 2 - 128 * 2.0f, GetScreenHeight() / 2.0f};
-                Vector2 pos = {i * 4 + windowOffset.x, windowOffset.y};
+                Vector2 windowOffset = { GetScreenWidth() / 2 - SIZE / 2.0f, GetScreenHeight() / 2.0f};
+                Vector2 pos = {i * SPACING + windowOffset.x, windowOffset.y};
 
                 // Height
                 float height = LastHeights[i];

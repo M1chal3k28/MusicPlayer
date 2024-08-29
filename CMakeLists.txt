@@ -12,7 +12,7 @@ include_directories(include)
 add_subdirectory(include/extern/raylib)
 target_link_libraries(cubeProject raylib)
 
-set(CMAKE_CONFIGURATION_TYPES "Release" CACHE STRING "" FORCE)
+set(CMAKE_CONFIGURATION_TYPES "Debug" CACHE STRING "" FORCE)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
