@@ -9,8 +9,8 @@ void Mode3D::Draw(float * output, float * lastHeights, MusicContainer & musicCon
     // Drawing the FFT
     BeginMode3D(camera);
         int ind = 0;  
-        for(int i = 0; i < 17; i++) {
-            for(int j = 0; j < 15; j++) {
+        for(int i = 0; i < ROWS_3D; i++) {
+            for(int j = 0; j < COLS_3D; j++) {
                 // Height
                 float height = lastHeights[ind];
                 if(musicContainer.IsPlaying()) {
