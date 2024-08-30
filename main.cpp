@@ -96,6 +96,7 @@ int main() {
     // Initialization
     //--------------------------------------------------------------------------------------
     SetConfigFlags(FLAG_MSAA_4X_HINT);
+    SetConfigFlags(FLAG_WINDOW_ALWAYS_RUN);
     InitWindow(WIDTH_2D, HEIGHT_2D, "Visualizer");
     SetTargetFPS(60);
 

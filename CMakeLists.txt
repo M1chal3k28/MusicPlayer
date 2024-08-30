@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(cubeProject VERSION 0.1.0 LANGUAGES C CXX)
+project(MusicPlayer VERSION 0.1.0 LANGUAGES C CXX)
 
-add_executable(cubeProject 
+add_executable(MusicPlayer 
     main.cpp 
     src/FFT.cpp
     src/MusicContainer.cpp
@@ -12,7 +12,7 @@ add_executable(cubeProject
 
 include_directories(include)
 add_subdirectory(include/extern/raylib)
-target_link_libraries(cubeProject raylib)
+target_link_libraries(MusicPlayer raylib)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug" CACHE STRING "" FORCE)
 
