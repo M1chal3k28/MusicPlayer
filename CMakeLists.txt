@@ -6,6 +6,8 @@ add_executable(cubeProject
     src/FFT.cpp
     src/MusicContainer.cpp
     src/Split.cpp
+    src/Mode2D.cpp
+    src/Mode3D.cpp
 )
 
 include_directories(include)

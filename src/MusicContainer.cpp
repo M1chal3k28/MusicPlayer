@@ -21,7 +21,8 @@ MusicContainer::MusicContainer(AudioCallback callback)
             std::string fileName = split(entry.path().string(), "/").back();
             std::string extension = split(fileName, ".").back();
         #endif
-
+        
+        // Read only mp3, wav and m4a files
         if(
             extension == "mp3" ||
             extension == "wav" ||
