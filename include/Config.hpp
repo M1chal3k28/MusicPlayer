@@ -2,7 +2,7 @@
 
 // Music settings
 #define MUSIC_FOLDER "music"
-#define MUSIC_VOLUME 0.00
+#define MUSIC_VOLUME 0.05
 #define MUSIC_PITCH  1.0
 #define MUSIC_PAN    0.5
 
