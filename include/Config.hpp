@@ -1,5 +1,11 @@
 #pragma once
 
+// Music settings
+#define MUSIC_FOLDER "music"
+#define MUSIC_VOLUME 0.00
+#define MUSIC_PITCH  1.0
+#define MUSIC_PAN    0.5
+
 #define SPACING_2D 2
 #define SPACING_3D 3
 

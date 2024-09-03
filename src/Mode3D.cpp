@@ -4,8 +4,7 @@
 
 #include <Config.hpp>
 
-void Mode3D::Draw(float * output, float * lastHeights, MusicContainer & musicContainer, Camera3D & camera)
-{
+void Mode3D::Draw(float * output, float * lastHeights, MusicContainer & musicContainer, Camera3D & camera) {
     // Drawing the FFT
     BeginMode3D(camera);
         int ind = 0;  

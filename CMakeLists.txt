@@ -8,6 +8,7 @@ add_executable(MusicPlayer
     src/Split.cpp
     src/Mode2D.cpp
     src/Mode3D.cpp
+    src/Callback.cpp
 )
 
 include_directories(include)

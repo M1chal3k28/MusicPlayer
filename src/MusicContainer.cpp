@@ -4,9 +4,11 @@
 #include <split.hpp>
 #include <math.h>
 
+#include <Config.hpp>
+
 // Constructor for MusicContainer class
 MusicContainer::MusicContainer(AudioCallback callback) 
-    : id(0), volume(0.05f), pitch(1.0f), pan(0.5f)
+    : id(0), volume(MUSIC_VOLUME), pitch(MUSIC_PITCH), pan(MUSIC_PAN)
 {
     // Get the current working directory and append the "music" path
     std::filesystem::path path = std::filesystem::current_path().append("music");
